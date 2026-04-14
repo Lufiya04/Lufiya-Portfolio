@@ -20,6 +20,12 @@
   <meta name="twitter:title" content="Lufiya Banu">
   <meta property="og:description" content="Portfolio of Lufiya Banu, an aspiring UI/UX Designer and Web Designer crafting intuitive digital experiences.">
   <meta name="twitter:description" content="Portfolio of Lufiya Banu, an aspiring UI/UX Designer and Web Designer crafting intuitive digital experiences.">
+  <script>
+    const p = new URLSearchParams(window.location.search).get('p');
+    if (p) {
+      window.history.replaceState(null, '', p);
+    }
+  </script>
   <script type="module" crossorigin src="/Lufiya-Portfolio/assets/index-BQBg8Y9W.js"></script>
   <link rel="stylesheet" crossorigin href="/Lufiya-Portfolio/assets/index-Ctm1OjpR.css">
 </head>
