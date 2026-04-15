@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import profileImg from "../assets/profile.jpg";
 
 const roles = ["UI/UX Designer", "Web Designer", "Graphic Designer", "Creative Thinker"];
+const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
 
 const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -38,6 +39,15 @@ const Hero = () => {
 
     return () => clearTimeout(timeout);
   }, [displayed, deleting, roleIndex]);
+
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Lufiya_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
@@ -138,17 +148,13 @@ const Hero = () => {
                 </svg>
               </span>
             </a>
-            <a
-              href="/resume.pdf"
-              download
-              className="group px-7 py-3.5 rounded-full border border-border text-foreground font-medium hover:border-primary/50 transition-all hover:scale-105 backdrop-blur-sm relative overflow-hidden flex items-center gap-2"
-            >
+            <button onClick={downloadResume} className="group px-7 py-3.5 rounded-full border border-border text-foreground font-medium hover:border-primary/50 transition-all hover:scale-105 backdrop-blur-sm relative overflow-hidden flex items-center gap-2">
               <span className="absolute inset-0 bg-primary/5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
               <svg className="relative z-10 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
               </svg>
-              <span className="relative z-10">Download CV</span>
-            </a>
+              <span className="relative z-10">Download Resume</span>
+            </button>
           </div>
 
           {/* Stats */}

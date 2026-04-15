@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Contact", href: "#contact" },
 ];
+const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +53,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="/resume.pdf"
+            href={resumeUrl}
             className="ml-4 px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:scale-105 transition-transform flex items-center gap-2"
           >
             <Download size={14} /> CV
@@ -79,7 +80,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a href="/resume.pdf" className="mt-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-medium text-center flex items-center justify-center gap-2">
+          <a href={resumeUrl} className="mt-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-medium text-center flex items-center justify-center gap-2">
             <Download size={14} /> Download CV
           </a>
         </div>
